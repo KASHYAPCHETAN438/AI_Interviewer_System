@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="absolute top-0 left-0 w-full z-50">
+    <nav className="absolute top-0 left-0 w-full z-50 border-b border-white/10 bg-gradient-to-b ">
       <div className="w-[90%] mx-auto flex items-center justify-between py-6 text-white">
         
         {/* LOGO */}
