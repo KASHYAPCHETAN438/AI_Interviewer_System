@@ -1,14 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
+import InterviewDashboard from "./components/InterviewDashboard";
+import CompareInterviews from "./components/CompareInterviews";
 
 
-/*
-  Future components (abhi nahi bane, baad me add karna)
-  import Login from "./components/Login";
-  import Signup from "./components/Signup";
-  import Dashboard from "./components/Dashboard";
-  import Interview from "./components/Interview";
-*/
+
 
 function App() {
   return (
@@ -16,20 +12,9 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<InterviewDashboard />} />
+        <Route path="/compare" element={<CompareInterviews />} />
         
-        {/*
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        */}
-
-        {/* Protected / App Routes */}
-        {/*
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/interview" element={<Interview />} />
-        */}
-
-        {/* 404 Page (later) */}
-        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
   );
