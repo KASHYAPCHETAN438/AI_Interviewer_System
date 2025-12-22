@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 
 export default function InterviewDashboard() {
 
-  /* ================= INTERVIEW TYPES ================= */
   const interviewTypes = [
     "Technical Interview – IT & Engineering",
     "HR Interview",
@@ -43,13 +42,18 @@ export default function InterviewDashboard() {
         transition={{ duration: 0.6 }}
         className="w-full"
       >
-        <div className="w-[90%] mx-auto py-3 flex items-center justify-between">
+        <div className="
+          w-[95%] sm:w-[90%] mx-auto py-3
+          flex flex-col sm:flex-row
+          gap-3 sm:gap-0
+          sm:items-center sm:justify-between
+        ">
 
           {/* LEFT */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             <motion.span
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 bg-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow"
+              className="bg-orange-500 text-white px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold shadow"
             >
               Practice Mode
             </motion.span>
@@ -59,7 +63,13 @@ export default function InterviewDashboard() {
               <select
                 value={selectedInterview}
                 onChange={(e) => setSelectedInterview(e.target.value)}
-                className="text-base font-semibold bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-transparent bg-transparent outline-none cursor-pointer pr-6 appearance-none"
+                className="
+                  text-sm sm:text-base font-semibold
+                  bg-gradient-to-r from-indigo-700 to-purple-700
+                  bg-clip-text text-transparent
+                  bg-transparent outline-none cursor-pointer
+                  pr-6 appearance-none
+                "
               >
                 {interviewTypes.map((t, i) => (
                   <option key={i} value={t} className="text-indigo-900">
@@ -77,7 +87,13 @@ export default function InterviewDashboard() {
           <motion.div
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ repeat: Infinity, duration: 2 }}
-            className="flex items-center gap-2 bg-white/30 border border-white/30 px-4 py-1.5 rounded-full backdrop-blur-md shadow-inner text-indigo-900 font-semibold"
+            className="
+              self-start sm:self-auto
+              bg-white/30 border border-white/30
+              px-4 py-1.5 rounded-full
+              backdrop-blur-md shadow-inner
+              text-indigo-900 text-sm font-semibold
+            "
           >
             ⏱ {minutes}:{seconds}
           </motion.div>
@@ -85,28 +101,41 @@ export default function InterviewDashboard() {
       </motion.div>
 
       {/* ================= HERO ================= */}
-      <section className="w-[90%] mx-auto mt-12 grid lg:grid-cols-2 gap-12 items-center">
+      <section className="
+        w-[95%] sm:w-[90%] mx-auto mt-10
+        grid grid-cols-1 lg:grid-cols-2
+        gap-10 items-center
+      ">
+        {/* LEFT */}
         <motion.div
           initial={{ x: -40, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
+          className="text-center lg:text-left"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-900">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-indigo-900">
             Welcome Back, Sarah!
           </h1>
 
-          <p className="mt-3 text-indigo-700 text-lg">
+          <p className="mt-3 text-indigo-700 text-base sm:text-lg">
             Ready to Ace Your Interview?
           </p>
 
-          <p className="mt-4 text-gray-600 max-w-md">
+          <p className="mt-4 text-gray-600 max-w-md mx-auto lg:mx-0 text-sm sm:text-base">
             Choose your domain and start practicing with smart AI interviews.
           </p>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-10 flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-7 py-3 rounded-full font-semibold shadow-md"
+            className="
+              mt-8 sm:mt-10
+              mx-auto lg:mx-0
+              flex items-center gap-2
+              bg-orange-500 hover:bg-orange-600
+              text-white px-7 py-3
+              rounded-full font-semibold shadow-md
+            "
           >
             <img src={playIcon} alt="play" className="w-4 h-4" />
             Start Practice
@@ -118,32 +147,35 @@ export default function InterviewDashboard() {
           initial={{ x: 40, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7 }}
-          className="flex justify-end pr-10"
+          className="flex justify-center lg:justify-end"
         >
-          <div className="bg-white/30 backdrop-blur-xl rounded-2xl p-5 shadow-2xl">
+          <div className="bg-white/30 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-2xl">
             <img
               src={dashboardIcon}
               alt="Interview"
-              className="w-[420px] h-72 object-cover rounded-xl"
+              className="w-[300px] sm:w-[380px] lg:w-[420px] h-64 sm:h-72 object-cover rounded-xl"
             />
           </div>
         </motion.div>
       </section>
 
       {/* ================= CONTENT ================= */}
-      <section className="w-[90%] mx-auto mt-12 pb-16 grid lg:grid-cols-3 gap-8">
+      <section className="
+        w-[95%] sm:w-[90%] mx-auto mt-12 pb-16
+        grid grid-cols-1 lg:grid-cols-3 gap-8
+      ">
 
-        {/* QUESTION CARD */}
+        {/* QUESTION */}
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="lg:col-span-2 bg-white/90 rounded-2xl shadow-xl p-6 space-y-5"
+          className="lg:col-span-2 bg-white/90 rounded-2xl shadow-xl p-5 sm:p-6 space-y-5"
         >
           <p className="text-sm text-gray-500">Question 1 / 5</p>
 
-          <h3 className="text-lg font-semibold text-indigo-900">
-            🔹 Can you explain what a <b>RESTful API</b> is and how it works?
+          <h3 className="text-base sm:text-lg font-semibold text-indigo-900">
+            🔹 Can you explain what a <b>RESTful APIs API</b> is and how it works?
           </h3>
 
           <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-4 text-sm text-gray-700">
@@ -159,8 +191,8 @@ export default function InterviewDashboard() {
             defaultValue="A RESTful API follows REST architecture principles..."
           />
 
-          <div className="flex justify-between">
-            <button className="flex items-center gap-2 bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm">
+          <div className="flex flex-col sm:flex-row gap-3 sm:justify-between">
+            <button className="flex items-center justify-center gap-2 bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm">
               <Mic size={16} /> Speak
             </button>
 
